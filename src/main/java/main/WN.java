@@ -1,37 +1,31 @@
+// Класс WN
 package main;
 import eduni.simjava.*;
 
 public class WN extends Sim_entity {
-    private Sim_port in, out;
-    private double delay;
-    public int jobs_count = 0;
-    public static Boolean flag = false;
+    private Sim_port in, out; // добавляем выходной порт
 
     WN(String name, double delay) {
         super(name);
-        this.delay = delay;
         in = new Sim_port("In");
-        out = new Sim_port("Out");
+        out = new Sim_port("Out"); // инициализация выходного порта
         add_port(in);
         add_port(out);
+        System.out.println("WN created: " + name);
     }
 
     @Override
     public void body() {
-        while (Sim_system.running()) {
+//        System.out.println("WN started...");
+        while (true) {
             Sim_event event = new Sim_event();
-            sim_get_next(event);
+            sim_wait(event);
             if (event.from_port(in)) {
-                sim_process(delay);
+                System.out.println("WN processing event...");
+                // Логика обработки
+                sim_schedule(out, 0.0, 0); // отправка результата на выходной порт
                 sim_completed(event);
-                sim_trace(Sim_system.get_trc_level(), "Workload No." + jobs_count + " has been processed!");
-                if (++jobs_count == Client.jobs_count) {
-                    flag = true; // Условие завершения
-                }
-            }
-            if (flag) {
-                sim_schedule(out, 1.0, ++jobs_count);
-                sim_trace(Sim_system.get_trc_level(), "All the results have been sent to CE!");
+                System.out.println("WN finished processing.");
             }
         }
     }
