@@ -4,7 +4,6 @@ import eduni.simjava.*;
 public class WN extends Sim_entity {
     private Sim_port in, out;
     private double delay;
-    public int jobs_count = 0;
     public static Boolean flag = false;
 
     WN(String name, double delay) {
@@ -24,16 +23,12 @@ public class WN extends Sim_entity {
             if (event.from_port(in)) {
                 sim_process(delay);
                 sim_completed(event);
-                sim_trace(Sim_system.get_trc_level(), "Workload No." + jobs_count + " has been processed!");
-                if (++jobs_count == Client.jobs_count) {
-                    flag = true; // Устанавливаем флаг, когда все задачи обработаны
-                }
-            }
-            if (flag) {
-                sim_schedule(out, 1.0 + (jobs_count * 2.0), jobs_count); // Отправка результата в CE
-                sim_trace(Sim_system.get_trc_level(), "All the results have been sent to CE!");
-            } else {
-                continue;
+
+                // Вывод с указанием имени узла
+                sim_trace(Sim_system.get_trc_level(), get_name() + " has processed the task.");
+
+                // Отправляем результат обратно в CE
+                sim_schedule(out, delay, 0);
             }
         }
     }
