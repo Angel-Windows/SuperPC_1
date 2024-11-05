@@ -1,0 +1,27 @@
+plugins {
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral() // Для стандартних залежностей
+    flatDir {
+        dirs 'libs' // Для локальних JAR-файлів
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-Xlint:-deprecation"]
+}
+
+application {
+    mainClassName = 'main.EntryPoint'
+}
+
