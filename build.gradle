@@ -22,6 +22,6 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainClassName = 'main.EntryPoint'
+    mainClass = 'main.Grid'
 }
 

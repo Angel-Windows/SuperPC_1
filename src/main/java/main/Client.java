@@ -30,7 +30,7 @@ public class Client extends Sim_entity {
         // Ожидание результата
         Sim_event event = new Sim_event();
         sim_wait(event);
-        if (event.from_port(in) && CE.link) {
+        if (event.from_port(in) && CE.link) { // Обращение к CE.link
             CE.link = false;
             sim_trace(Sim_system.get_trc_level(), ">> Result link received!");
             System.out.println("Done!");
