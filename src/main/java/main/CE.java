@@ -52,7 +52,7 @@ public class CE extends Sim_entity {
 
                 // If all parts are received, send the final result to Client
                 if (receivedParts == 3) {
-//                    Test
+
                     sim_trace(Sim_system.get_trc_level(), "CE has combined all results and sent to Client.");
                     sim_schedule(outResult, 0.0, 0);
                     receivedParts = 0;
