@@ -12,10 +12,10 @@ public class EntryPoint {
         // Подключение портов
         Sim_system.link_ports("Client", "Out", "CE", "In1");
         Sim_system.link_ports("CE", "Out1", "WN", "In");
-        Sim_system.link_ports("WN", "Out", "CE", "In2"); // Подключение выходного порта WN
+        Sim_system.link_ports("WN", "Out", "CE", "In2");
         Sim_system.link_ports("CE", "Out2", "Client", "In");
 
-        Sim_system.set_trace_detail(false, true, false);
+        Sim_system.set_trace_detail(true, true, true);
         Sim_system.run();
     }
 }

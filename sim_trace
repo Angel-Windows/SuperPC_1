@@ -1,9 +1,38 @@
-u: Client at 0.0: jdl-file has been sent...
-u: CE at 2.0: Workload No.0 from CE has been sent...
-u: Client at 10.0: jdl-file has been sent...
-u: WN_1 at 14.0: WN_1 has processed the task.
-u: CE at 18.0: Workload No.1 from CE has been sent...
-u: CE at 24.0: The output directory generated!
-u: Client at 27.0: >> Result link received!
-u: WN_2 at 40.0: WN_2 has processed the task.
-u: CE at 60.0: The output directory generated!
+u: Client at 0.0: Client has sent a task.
+u: Client at 0.0: scheduling event type 0 for CE with delay 0.0
+u: Client at 0.0: waiting for an event
+u: WN_3 at 0.0: waiting for an event
+u: WN_2 at 0.0: waiting for an event
+u: CE at 0.0: waiting for an event
+u: WN_1 at 0.0: waiting for an event
+u: CE at 0.0: start processing
+u: CE at 2.0: event type 0 completed service
+u: CE at 2.0: CE has split the task into 3 parts.
+u: CE at 2.0: scheduling event type 0 for WN_1 with delay 0.0
+u: CE at 2.0: scheduling event type 0 for WN_2 with delay 0.0
+u: CE at 2.0: scheduling event type 0 for WN_3 with delay 0.0
+u: CE at 2.0: waiting for an event
+u: WN_1 at 2.0: start processing
+u: WN_2 at 2.0: start processing
+u: WN_3 at 2.0: start processing
+u: WN_1 at 12.0: event type 0 completed service
+u: WN_1 at 12.0: WN_1 is processing its part with delay: 10.0
+u: WN_1 at 12.0: scheduling event type 0 for CE with delay 0.0
+u: WN_1 at 12.0: waiting for an event
+u: CE at 12.0: CE received a partial result.
+u: CE at 12.0: waiting for an event
+u: WN_2 at 22.0: event type 0 completed service
+u: WN_2 at 22.0: WN_2 is processing its part with delay: 20.0
+u: WN_2 at 22.0: scheduling event type 0 for CE with delay 0.0
+u: WN_2 at 22.0: waiting for an event
+u: CE at 22.0: CE received a partial result.
+u: CE at 22.0: waiting for an event
+u: WN_3 at 32.0: event type 0 completed service
+u: WN_3 at 32.0: WN_3 is processing its part with delay: 30.0
+u: WN_3 at 32.0: scheduling event type 0 for CE with delay 0.0
+u: WN_3 at 32.0: waiting for an event
+u: CE at 32.0: CE received a partial result.
+u: CE at 32.0: CE has combined all results and sent to Client.
+u: CE at 32.0: scheduling event type 0 for Client with delay 0.0
+u: CE at 32.0: waiting for an event
+u: Client at 32.0: Client received the final result. Task completed!
